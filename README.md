@@ -19,7 +19,7 @@ Ejercicio realizado para la primera clase de **Desafío Latam - Módulo 3: Javas
 - ✅ Método Fetch
 - ✅ Async / Await
 - ✅ Métodos HTTP
-- ✅ Modificar DOM co API
+- ✅ Modificar DOM con API
 - ✅ Variables
 - ✅ innerHTML
 - ✅ querySelector
