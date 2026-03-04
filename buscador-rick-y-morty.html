@@ -14,61 +14,7 @@
     <p class="status"></p>
     <section class="results"></section>
 
-    <script>
-        const urlBase = "https://rickandmortyapi.com/api/character"
-        const input = document.querySelector(".query");
-        const btn = document.querySelector(".btn");
-        const statusTxt = document.querySelector(".status");
-        const results = document.querySelector(".results");
-
-        async function searchCharacters(name) {
-            try {
-                statusTxt.textContent = "Buscando..."
-                results.innerHTML = ""
-
-                const res = await fetch(urlBase + "/?name=" + encodeURIComponent(name))
-
-                if (!res.ok) {
-                    throw new Error("No se encontraron personajes con ese nombre")
-                }
-
-                const data = await res.json()
-                const characters = data.results.slice(0, 9)
-                statusTxt.textContent = `resultados: ${characters.length}`
-
-                // Render simple en el DOM
-                results.innerHTML = characters
-                    .map((c) => {
-                        return `
-                            <article style="border:1px solid #ccc; padding:10px; margin:10px 0; display:flex; gap:10px; align-items:center;">
-                            <img src="${c.image}" alt="${c.name}" width="80" />
-                            <div>
-                            <h3 style="margin:0;">${c.name}</h3>
-                            <p style="margin:4px 0;">Especie: ${c.species}</p>
-                            <p style="margin:4px 0;">Estado: ${c.status}</p>
-                            </div>
-                            </article>
-                        `;
-                    })
-                    .join("");
-
-            } catch (error) {
-                statusTxt.textContent = "Ups!: " + error.message
-            }
-        };
-
-        btn.addEventListener("click", () => {
-            const value = input.value.trim();   /* trim elimina espacio */
-
-            if (!value) {
-                statusText.textContent = "Escribe un nombre para buscar ";
-                results.innerHTML = "";
-                return;
-            }
-
-            searchCharacters(value);
-        });
-    </script>
+    <script src="./assets/js/script-rickandmorty.js"></script>
 </body>
 
 </html>
